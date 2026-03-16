@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+
+    <title>terrar</title>
+    
+<script type="module">
+import init, * as bindings from '/terrar-b9ab71285ed31bd0.js';
+init('/terrar-b9ab71285ed31bd0_bg.wasm');
+window.wasmBindings = bindings;
+
+</script>
+    <base href="/">
+
+    <style>
+        html {
+            touch-action: manipulation;
+        }
+
+        body {
+            background: #e8e8e8;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #404040;
+            }
+        }
+
+        html,
+        body {
+            overflow: hidden;
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 100%;
+            width: 100%;
+        }
+
+        canvas {
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+
+        .centered {
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #f0f0f0;
+            font-size: 24px;
+            font-family: Ubuntu-Light, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        .lds-dual-ring {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+        }
+
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: 0px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+        }
+
+        @keyframes lds-dual-ring {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+<link rel="preload" href="/terrar-b9ab71285ed31bd0_bg.wasm" crossorigin="anonymous" integrity="sha384-uNByxjEwYoyd1nOj-9C3KvLY55kMC5Hape877qc7EAC75sKsxlAuUtQXRC0cv9OW" as="fetch" type="application/wasm">
+<link rel="modulepreload" href="/terrar-b9ab71285ed31bd0.js" crossorigin="anonymous" integrity="sha384-lfDZngJhWcSp7zcgq1jqrtoY0RnqTuad6KA_FILA2m8bUYkeP6auv9T1SGJeVeNc"></head>
+
+<body>
+    <div class="centered" id="loading">
+        <p>Loading terrar...</p>
+        <div class="lds-dual-ring"></div>
+    </div>
+    <canvas id="the_canvas_id"></canvas>
+
+
+
+</body></html>

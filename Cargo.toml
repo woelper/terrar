@@ -1,0 +1,46 @@
+[package]
+name = "terrar"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+egui = "0.33"
+eframe = { version = "0.33", default-features = false, features = [
+    "default_fonts",
+    "glow",
+] }
+log = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+walkers = { git = "https://github.com/podusowski/walkers.git" }
+geo = "0.27"
+bevy_ecs = "0.15"
+egui-phosphor = { version = "0.11", features = ["regular", "fill"] }
+reqwest = { version = "0.12", features = ["json", "gzip"] }
+colorous = "1"
+web-time = "1"
+
+# native only
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+env_logger = "0.11"
+tokio = { version = "1", features = ["rt-multi-thread", "sync", "time", "macros"] }
+
+# web only
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen-futures = "0.4"
+gloo-timers = { version = "0.3", features = ["futures"] }
+getrandom = { version = "0.3", features = ["wasm_js"] }
+web-sys = { version = "0.3", features = ["HtmlCanvasElement"] }
+wasm-bindgen = "0.2"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = 2
